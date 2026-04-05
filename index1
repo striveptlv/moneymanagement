@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRIVE Physical Therapy · Las Vegas, NV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+ 
+<!-- ============================================================
+  STRIVE Physical Therapy — Header & Footer Template
+  Main site: https://striveptlv.github.io  (update if URL changes)
+  Usage: Copy the <nav>, mobile-menu <div>, and <footer> blocks
+         into any page. Keep the <style> block and <script> tag.
+  ============================================================ -->
+ 
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f6fbf7;
+    color: #0d2118;
+    overflow-x: hidden;
+    /* Push body content below fixed nav */
+    padding-top: 70px;
+  }
+ 
+  /* ── DESIGN TOKENS ── */
+  :root {
+    --forest:      #0d2118;
+    --green:       #1e8a4a;
+    --green-light: #2faa5e;
+    --green-pale:  #e8f5ee;
+    --gold:        #c9973a;
+    --cream:       #f2f7f4;
+    --warm-white:  #f6fbf7;
+    --text-dark:   #0d2118;
+    --text-mid:    #2e5040;
+    --text-light:  #5a7a68;
+  }
+ 
+  /* ══════════════════════════════════════
+     NAV
+  ══════════════════════════════════════ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(13,33,24,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,138,74,0.25);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
+  }
+ 
+  /* Logo */
+  .nav-logo {
+    display: flex; align-items: center; gap: 11px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 40px; height: 40px;
+    background: var(--green);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: white; flex-shrink: 0;
+  }
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: white;
+    line-height: 1.1; letter-spacing: 2px;
+  }
+  .logo-sub {
+    font-size: 9.5px; font-family: 'DM Sans', sans-serif;
+    color: var(--green-light); font-weight: 300;
+    letter-spacing: 2.5px; text-transform: uppercase;
+  }
+ 
+  /* Desktop links */
+  .nav-links {
+    display: flex; align-items: center; gap: 26px;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.72); text-decoration: none;
+    font-size: 13.5px; letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-light); }
+  .nav-book {
+    background: var(--green) !important;
+    color: white !important;
+    padding: 9px 22px; border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-book:hover { background: var(--green-light) !important; }
+ 
+  /* Hamburger */
+  .nav-toggle {
+    display: none; flex-direction: column;
+    gap: 5px; cursor: pointer;
+  }
+  .nav-toggle span {
+    width: 22px; height: 2px;
+    background: white; border-radius: 2px;
+    transition: 0.3s;
+  }
+ 
+  /* ══════════════════════════════════════
+     MOBILE MENU
+  ══════════════════════════════════════ */
+  .mobile-menu {
+    display: none; flex-direction: column;
+    position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+    background: var(--forest); z-index: 199;
+    padding: 32px 6vw;
+    overflow-y: auto;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 18px; font-family: 'Cormorant Garamond', serif;
+    font-weight: 300; padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mob-book {
+    background: var(--green); color: white !important;
+    text-align: center; border-radius: 2px;
+    padding: 15px !important; margin-top: 24px;
+    border: none !important; font-size: 16px;
+  }
+ 
+  /* ══════════════════════════════════════
+     PAGE CONTENT AREA (demo only)
+  ══════════════════════════════════════ */
+  .page-content {
+    min-height: 60vh;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px;
+    padding: 80px 5vw;
+    text-align: center;
+  }
+  .page-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 300; color: var(--text-dark); line-height: 1.2;
+  }
+  .page-content h2 em { font-style: italic; color: var(--green); }
+  .page-content p {
+    font-size: 16px; color: var(--text-mid);
+    line-height: 1.8; max-width: 560px;
+  }
+  .page-content code {
+    display: inline-block;
+    background: rgba(13,33,24,0.06);
+    border: 1px solid rgba(30,138,74,0.2);
+    color: var(--green);
+    font-size: 13px; padding: 4px 10px; border-radius: 2px;
+    font-family: monospace; margin-top: 4px;
+  }
+ 
+  /* ══════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════ */
+  footer {
+    background: var(--forest);
+    padding: 64px 5vw 28px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+ 
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+ 
+  .footer-brand p {
+    color: rgba(255,255,255,0.36);
+    font-size: 13.5px; line-height: 1.8;
+    margin-top: 16px; max-width: 260px;
+  }
+ 
+  .footer-col h4 {
+    color: rgba(255,255,255,0.88);
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block; color: rgba(255,255,255,0.36);
+    font-size: 13.5px; text-decoration: none;
+    margin-bottom: 10px; transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--green-light); }
+ 
+  .footer-bottom {
+    padding-top: 26px;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 10px;
+    color: rgba(255,255,255,0.2); font-size: 12px;
+  }
+ 
+  /* ══════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════ */
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .page-content { padding: 60px 5vw; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- ══════════════════════════════════════════════════
+     NAV
+     All links point to the main STRIVE PT website.
+     Update the base URL below if the domain changes.
+════════════════════════════════════════════════════ -->
+<nav>
+  <a href="https://striveptlv.github.io" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">
+      STRIVE
+      <div class="logo-sub">Physical Therapy · Las Vegas</div>
+    </div>
+  </a>
+ 
+  <div class="nav-links">
+    <a href="https://striveptlv.github.io/#services">Services</a>
+    <a href="https://striveptlv.github.io/#difference">Why 1-on-1</a>
+    <a href="https://striveptlv.github.io/#providers">Our Team</a>
+    <a href="https://striveptlv.github.io/#faq">FAQ</a>
+    <a href="https://striveptlv.github.io/#contact">Contact</a>
+    <a href="https://striveptlv.github.io/moneymanagement/" target="_blank" rel="noopener">Money Management</a>
+    <a href="https://striveptlv.github.io/#booking" class="nav-book">Book Now</a>
+  </div>
+ 
+  <div class="nav-toggle" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+ 
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="https://striveptlv.github.io/#services"    onclick="toggleMenu()">Services</a>
+  <a href="https://striveptlv.github.io/#difference"  onclick="toggleMenu()">Why 1-on-1</a>
+  <a href="https://striveptlv.github.io/#providers"   onclick="toggleMenu()">Our Team</a>
+  <a href="https://striveptlv.github.io/#faq"         onclick="toggleMenu()">FAQ</a>
+  <a href="https://striveptlv.github.io/#contact"     onclick="toggleMenu()">Contact</a>
+  <a href="https://striveptlv.github.io/moneymanagement/" target="_blank" rel="noopener" onclick="toggleMenu()">Money Management</a>
+  <a href="https://striveptlv.github.io/#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
+</div>
+ 
+ 
+<!-- ══════════════════════════════════════════════════
+     YOUR PAGE CONTENT GOES HERE
+     Delete the .page-content block below and replace
+     with your actual page HTML.
+════════════════════════════════════════════════════ -->
+<div class="page-content">
+  <h2>Your Page Content <em>Goes Here</em></h2>
+  <p>Replace this placeholder with your page's content. The header and footer above and below will stay consistent across all pages.</p>
+  <code>&lt;!-- delete this .page-content block --&gt;</code>
+</div>
+ 
+ 
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+ 
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="https://striveptlv.github.io" class="nav-logo">
+          <div class="logo-mark">S</div>
+          <div class="logo-text" style="color:white;">
+            STRIVE
+            <div class="logo-sub">Physical Therapy · Las Vegas</div>
+          </div>
+        </a>
+        <p>Stroke &amp; vestibular physical therapy delivered 1-on-1 in your Las Vegas home. Serving the entire valley with dedicated, certified care.</p>
+      </div>
+ 
+      <!-- Services -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="https://striveptlv.github.io/#services">Neurological Rehab</a>
+        <a href="https://striveptlv.github.io/#services">Vestibular Therapy</a>
+        <a href="https://striveptlv.github.io/#services">Balance &amp; Fall Prevention</a>
+        <a href="https://striveptlv.github.io/#services">Concussion Rehab</a>
+        <a href="https://striveptlv.github.io/#services">Home Safety Assessment</a>
+      </div>
+ 
+      <!-- Practice -->
+      <div class="footer-col">
+        <h4>Practice</h4>
+        <a href="https://striveptlv.github.io/#difference">Why 1-on-1 PT</a>
+        <a href="https://striveptlv.github.io/#providers">Our Team</a>
+        <a href="https://striveptlv.github.io/#pricing">Payment Options</a>
+        <a href="https://striveptlv.github.io/#faq">FAQ</a>
+        <a href="https://striveptlv.github.io/#contact">Medicare Waitlist</a>
+        <a href="https://striveptlv.github.io/moneymanagement/" target="_blank" rel="noopener">Money Management</a>
+      </div>
+ 
+      <!-- Las Vegas -->
+      <div class="footer-col">
+        <h4>Las Vegas</h4>
+        <a href="https://striveptlv.github.io/#booking">Book via JaneApp</a>
+        <a href="https://striveptlv.github.io/#contact">Contact Us</a>
+        <a href="https://striveptlv.github.io/#contact">Henderson</a>
+        <a href="https://striveptlv.github.io/#contact">Summerlin</a>
+        <a href="https://striveptlv.github.io/#contact">North Las Vegas</a>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer-bottom">
+      <span>&copy; 2025 STRIVE Physical Therapy &middot; Las Vegas, NV &middot; All rights reserved.</span>
+      <span>Licensed Physical Therapists &middot; State of Nevada</span>
+    </div>
+  </div>
+</footer>
+ 
+ 
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
