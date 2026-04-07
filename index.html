@@ -220,34 +220,7 @@
           padding: 22px;
         }
       }
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: rgba(13,33,24,0.97); backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(30,138,74,0.25);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5vw; height: 70px;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-  .logo-img {
-  width: 60px; height: 60px;
-  object-fit: contain; flex-shrink: 0;
-}
-.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: white; line-height: 1.1; letter-spacing: 2px; }
-.logo-sub { font-size: 9.5px; font-family: 'DM Sans', sans-serif; color: var(--green-light); font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; }
-.nav-links { display: flex; align-items: center; gap: 26px; }
-.nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13.5px; letter-spacing: 0.3px; transition: color 0.2s; }
-.nav-links a:hover { color: var(--green-light); }
-.nav-book { background: var(--green) !important; color: white !important; padding: 9px 22px; border-radius: 2px; font-weight: 500 !important; transition: background 0.2s !important; }
-.nav-book:hover { background: var(--green-light) !important; }
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.nav-toggle span { width: 22px; height: 2px; background: white; border-radius: 2px; }
-  /* MOBILE MENU */
-  .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--forest); z-index: 199; padding: 32px 6vw; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 18px; font-family: 'Cormorant Garamond', serif; font-weight: 300; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .mob-book { background: var(--green); color: white !important; text-align: center; border-radius: 2px; padding: 15px !important; margin-top: 24px; border: none !important; font-size: 16px; }
-
+  
       
     </style>
   </head>
@@ -260,22 +233,23 @@
 <nav>
   <a href="https://striveptlv.com" class="nav-logo">
     <img src="https://striveptlv.com/logo.png" alt="STRIVE PT Logo" class="logo-img">
-      STRIVE
+    <div>
+      <div class="logo-text">STRIVE</div>
       <div class="logo-sub">Physical Therapy · Las Vegas</div>
     </div>
   </a>
- 
+
   <div class="nav-links">
     <a href="https://striveptlv.com/">Home</a>
     <a href="https://striveptlv.com/#services">Services</a>
     <a href="https://striveptlv.com/#difference">Why 1-on-1</a>
     <a href="https://striveptlv.com/#providers">Our Team</a>
-    <a href="https://striveptlv.com#faq">FAQ</a>
+    <a href="https://striveptlv.com/#faq">FAQ</a>
     <a href="https://striveptlv.com/#contact">Contact</a>
     <a href="https://striveptlv.com/">Patient Resources</a>
     <a href="https://striveptlv.com/" class="nav-book">Book Now</a>
   </div>
- 
+
   <div class="nav-toggle" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -283,13 +257,13 @@
  
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="https://striveptlv.com"    onclick="toggleMenu()">Home</a>
-  <a href="https://striveptlv.com/#services"    onclick="toggleMenu()">Services</a>
-  <a href="https://striveptlv.com/#difference"  onclick="toggleMenu()">Why 1-on-1</a>
-  <a href="https://striveptlv.com/#providers"   onclick="toggleMenu()">Our Team</a>
-  <a href="https://striveptlv.com/#faq"         onclick="toggleMenu()">FAQ</a>
-  <a href="https://striveptlv.com/#contact"     onclick="toggleMenu()">Contact</a>
-  <a href="https://striveptlv.com/moneymanagement          onclick="toggleMenu()">Patient Resource</a>
+  <a href="https://striveptlv.com" onclick="toggleMenu()">Home</a>
+  <a href="https://striveptlv.com/#services" onclick="toggleMenu()">Services</a>
+  <a href="https://striveptlv.com/#difference" onclick="toggleMenu()">Why 1-on-1</a>
+  <a href="https://striveptlv.com/#providers" onclick="toggleMenu()">Our Team</a>
+  <a href="https://striveptlv.com/#faq" onclick="toggleMenu()">FAQ</a>
+  <a href="https://striveptlv.com/#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://striveptlv.com/moneymanagement" onclick="toggleMenu()">Patient Resources</a>
   <a href="https://striveptlv.com/#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
 </div>
  
@@ -395,14 +369,34 @@
     display: flex; align-items: center; gap: 11px;
     text-decoration: none;
   }
-  .logo-mark {
-    width: 40px; height: 40px;
-    background: var(--green);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px; font-weight: 600; color: white; flex-shrink: 0;
+  ./* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(13,33,24,0.97); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30,138,74,0.25);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 70px;
   }
+  .nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+  .logo-img {
+  width: 60px; height: 60px;
+  object-fit: contain; flex-shrink: 0;
+}
+.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: white; line-height: 1.1; letter-spacing: 2px; }
+.logo-sub { font-size: 9.5px; font-family: 'DM Sans', sans-serif; color: var(--green-light); font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 13.5px; letter-spacing: 0.3px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--green-light); }
+.nav-book { background: var(--green) !important; color: white !important; padding: 9px 22px; border-radius: 2px; font-weight: 500 !important; transition: background 0.2s !important; }
+.nav-book:hover { background: var(--green-light) !important; }
+.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-toggle span { width: 22px; height: 2px; background: white; border-radius: 2px; }
+  /* MOBILE MENU */
+  .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; bottom: 0; background: var(--forest); z-index: 199; padding: 32px 6vw; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 18px; font-family: 'Cormorant Garamond', serif; font-weight: 300; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .mob-book { background: var(--green); color: white !important; text-align: center; border-radius: 2px; padding: 15px !important; margin-top: 24px; border: none !important; font-size: 16px; }
+
   .logo-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 20px; font-weight: 600; color: white;
