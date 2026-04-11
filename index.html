@@ -274,7 +274,7 @@
     <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu()">Money Management</a>
     <a href="https://striveptlv.com/localresources/" onclick="toggleMenu()">Local Resources</a>
   </div>
-</div><a href="https://striveptlv.com/">Patient Resource</a>
+</div>
     <a href="https://striveptlv.com/" class="nav-book">Book Now</a>
   </div>
 
@@ -291,7 +291,15 @@
   <a href="https://striveptlv.com/#providers" onclick="toggleMenu()">Our Team</a>
   <a href="https://striveptlv.com/#faq" onclick="toggleMenu()">FAQ</a>
   <a href="https://striveptlv.com/#contact" onclick="toggleMenu()">Contact</a>
-  <a href="https://striveptlv.com/moneymanagement" onclick="toggleMenu()">Patient Resources</a>
+  <div class="mob-dropdown">
+  <div class="mob-dropdown-toggle" onclick="togglePatientResource()">
+    Patient Resource <span class="mob-arrow">›</span>
+  </div>
+  <div class="mob-dropdown-items" id="patientResourceItems">
+    <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu()">Money Management</a>
+    <a href="https://striveptlv.com/localresources/" onclick="toggleMenu()">Local Resources</a>
+  </div>
+</div>
   <a href="https://striveptlv.com/#booking" class="mob-book" onclick="toggleMenu()">Book an Appointment</a>
 </div>
  
@@ -633,12 +641,13 @@
  
  
 <script>
-  function toggleMenu() function togglePatientResource() {
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function togglePatientResource() {
   document.getElementById('patientResourceItems').classList.toggle('open');
   document.querySelector('.mob-arrow').classList.toggle('open');
-} {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
+}
 </script>
 </body>
 </html>
