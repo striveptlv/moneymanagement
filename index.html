@@ -220,7 +220,27 @@
           padding: 22px;
         }
       }
-  
+  /* ── PATIENT RESOURCE DROPDOWN ── */
+.mob-dropdown { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.mob-dropdown-toggle {
+  display: flex; justify-content: space-between; align-items: center;
+  color: rgba(255,255,255,0.85); font-size: 18px;
+  font-family: 'Cormorant Garamond', serif; font-weight: 300;
+  padding: 16px 0; cursor: pointer;
+}
+.mob-arrow {
+  font-size: 22px; color: #2faa5e; display: inline-block; transition: transform 0.25s;
+}
+.mob-arrow.open { transform: rotate(90deg); }
+.mob-dropdown-items { display: none; flex-direction: column; padding-left: 16px; }
+.mob-dropdown-items.open { display: flex; }
+.mob-dropdown-items a {
+  font-size: 15px !important; padding: 12px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+  color: rgba(255,255,255,0.6) !important;
+}
+.mob-dropdown-items a:last-child { border-bottom: none !important; }
+
       
     </style>
   </head>
@@ -246,7 +266,15 @@
     <a href="https://striveptlv.com/#providers">Our Team</a>
     <a href="https://striveptlv.com/#faq">FAQ</a>
     <a href="https://striveptlv.com/#contact">Contact</a>
-    <a href="https://striveptlv.com/">Patient Resource</a>
+    <div class="mob-dropdown">
+        <div class="mob-dropdown-toggle" onclick="togglePatientResource()">
+              Patient Resource <span class="mob-arrow">›</span>
+        </div>
+    <div class="mob-dropdown-items" id="patientResourceItems">
+    <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu()">Money Management</a>
+    <a href="https://striveptlv.com/localresources/" onclick="toggleMenu()">Local Resources</a>
+  </div>
+</div><a href="https://striveptlv.com/">Patient Resource</a>
     <a href="https://striveptlv.com/" class="nav-book">Book Now</a>
   </div>
 
@@ -605,7 +633,10 @@
  
  
 <script>
-  function toggleMenu() {
+  function toggleMenu() function togglePatientResource() {
+  document.getElementById('patientResourceItems').classList.toggle('open');
+  document.querySelector('.mob-arrow').classList.toggle('open');
+} {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 </script>
