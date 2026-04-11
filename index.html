@@ -266,6 +266,91 @@
 }
 .dropdown-menu a:last-child { border-bottom: none; }
 .dropdown-menu a:hover { background: rgba(30,138,74,0.15); color: #2faa5e; }
+
+/* ══ DONATION BANNER ══ */
+@keyframes donate-hb { 0%,100%{transform:scale(1)} 30%{transform:scale(1.18)} 60%{transform:scale(1.08)} }
+@keyframes donate-pulse { 0%{transform:scale(0.85);opacity:0.6} 100%{transform:scale(1.5);opacity:0} }
+
+.donate-card {
+  background: #0d2118;
+  border: 1px solid rgba(30,138,74,0.3);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  padding: 36px 40px;
+  display: flex; align-items: center; gap: 36px;
+  position: relative; overflow: hidden;
+}
+.donate-card::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(30,138,74,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.donate-heart-wrap {
+  position: relative; flex-shrink: 0;
+  width: 80px; height: 80px;
+  display: flex; align-items: center; justify-content: center;
+}
+.donate-pulse-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid rgba(30,138,74,0.5);
+  animation: donate-pulse 2s ease-out infinite;
+}
+.donate-pulse-ring-2 {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid rgba(30,138,74,0.3);
+  animation: donate-pulse 2s ease-out infinite 0.7s;
+}
+.donate-heart-bg {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: rgba(30,138,74,0.18);
+  border: 1px solid rgba(30,138,74,0.35);
+  display: flex; align-items: center; justify-content: center;
+}
+.donate-heart-svg { animation: donate-hb 1.6s ease-in-out infinite; }
+.donate-eyebrow {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: #2faa5e; font-weight: 500; margin-bottom: 6px;
+}
+.donate-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 400; color: white;
+  margin: 0 0 8px; line-height: 1.25;
+}
+.donate-card p {
+  font-size: 13.5px; color: rgba(255,255,255,0.48);
+  line-height: 1.75; margin: 0; max-width: 420px;
+}
+.donate-text { flex: 1; }
+.donate-actions {
+  display: flex; flex-direction: column;
+  gap: 10px; min-width: 190px; flex-shrink: 0;
+}
+.donate-btn {
+  display: block; padding: 13px 24px; border-radius: 4px;
+  text-decoration: none; font-size: 14px; font-weight: 500;
+  color: white; text-align: center;
+  background: #1e8a4a; transition: background 0.2s;
+}
+.donate-btn:hover { background: #2faa5e; }
+.donate-btn-alt {
+  display: block; padding: 11px 24px; border-radius: 4px;
+  text-decoration: none; font-size: 13px; font-weight: 400;
+  color: rgba(255,255,255,0.55); text-align: center;
+  border: 1px solid rgba(30,138,74,0.35);
+  transition: border-color 0.2s, color 0.2s;
+}
+.donate-btn-alt:hover { border-color: #2faa5e; color: rgba(255,255,255,0.9); }
+.donate-note {
+  font-size: 11px; color: rgba(255,255,255,0.25);
+  text-align: center; margin-top: 2px;
+}
+@media (max-width: 960px) {
+  .donate-card { flex-direction: column; text-align: center; padding: 28px 22px; gap: 24px; }
+  .donate-actions { min-width: unset; width: 100%; }
+  .donate-card p { max-width: unset; }
+}
       
     </style>
   </head>
@@ -613,6 +698,29 @@
 </head>
 <body>
 </div>
+
+<aside class="donate-card">
+  <div class="donate-heart-wrap">
+    <div class="donate-pulse-ring"></div>
+    <div class="donate-pulse-ring-2"></div>
+    <div class="donate-heart-bg">
+      <svg class="donate-heart-svg" width="36" height="36" viewBox="0 0 24 24" fill="#1e8a4a" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="donate-text">
+    <div class="donate-eyebrow">Free for stroke patients &amp; families</div>
+    <h3>This tool is always free</h3>
+    <p>No paywalls, no subscriptions — ever. If this helped someone you love on their recovery journey, a small donation keeps it running for everyone who needs it.</p>
+  </div>
+  <div class="donate-actions">
+    <a class="donate-btn" href="https://ko-fi.com/yourname" target="_blank" rel="noopener">Support on Ko-fi</a>
+    <a class="donate-btn-alt" href="https://www.buymeacoffee.com/yourname" target="_blank" rel="noopener">Buy me a coffee</a>
+    <p class="donate-note">No account needed &middot; any amount welcome</p>
+  </div>
+</aside>
+
   
  
 <!-- ══════════════════════════════════════════════════
