@@ -266,13 +266,11 @@
     <a href="https://striveptlv.com/#providers">Our Team</a>
     <a href="https://striveptlv.com/#faq">FAQ</a>
     <a href="https://striveptlv.com/#contact">Contact</a>
-    <div class="mob-dropdown">
-        <div class="mob-dropdown-toggle" onclick="togglePatientResource()">
-              Patient Resource <span class="mob-arrow">›</span>
-        </div>
-    <div class="mob-dropdown-items" id="patientResourceItems">
-    <a href="https://striveptlv.com/moneymanagement/" onclick="toggleMenu()">Money Management</a>
-    <a href="https://striveptlv.com/localresources/" onclick="toggleMenu()">Local Resources</a>
+   <div class="nav-dropdown">
+  <a href="#">Patient Resource</a>
+  <div class="dropdown-menu">
+    <a href="https://striveptlv.com/moneymanagement/">Money Management</a>
+    <a href="https://striveptlv.com/localresources/">Local Resources</a>
   </div>
 </div>
     <a href="https://striveptlv.com/" class="nav-book">Book Now</a>
@@ -648,6 +646,32 @@ function togglePatientResource() {
   document.getElementById('patientResourceItems').classList.toggle('open');
   document.querySelector('.mob-arrow').classList.toggle('open');
 }
+.nav-dropdown { position: relative; display: flex; align-items: center; }
+.nav-dropdown > a { display: flex; align-items: center; gap: 5px; padding: 24px 0; }
+.nav-dropdown > a::after {
+  content: ''; display: inline-block; width: 0; height: 0;
+  border-left: 4px solid transparent; border-right: 4px solid transparent;
+  border-top: 5px solid rgba(255,255,255,0.55); transition: transform 0.2s;
+}
+.nav-dropdown:hover > a { color: var(--green-light); }
+.nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: var(--green-light); }
+.dropdown-menu {
+  opacity: 0; pointer-events: none;
+  position: absolute; top: 100%; right: 0;
+  background: #133022;
+  border: 1px solid rgba(30,138,74,0.25);
+  border-radius: 4px; min-width: 190px; overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35); transition: opacity 0.15s;
+}
+.nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; }
+.dropdown-menu a {
+  display: block; color: rgba(255,255,255,0.72); font-size: 13.5px;
+  padding: 11px 18px; border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.15s, color 0.15s; white-space: nowrap;
+}
+.dropdown-menu a:last-child { border-bottom: none; }
+.dropdown-menu a:hover { background: rgba(30,138,74,0.15); color: #2faa5e; }
+  
 </script>
 </body>
 </html>
