@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STRIVE Independence | Left-Right</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=basic-2" />
+  </head>
+  <body>
+    <nav aria-label="STRIVE Independence">
+      <a class="nav-logo" href="https://www.striveptlv.com/independence/dashboard.html">
+        <img class="logo-img" src="./logo.png" alt="STRIVE Independence logo" />
+        <div class="logo-wrap">
+          <span class="logo-text">STRIVE</span>
+          <span class="logo-sub">Independence</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <label class="language-control" for="languageSelect">
+          <span id="languageLabel">Language</span>
+          <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </label>
+        <a class="contact-button" id="navAction" href="https://www.striveptlv.com/independence/contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <main class="app-shell">
+      <div class="home-layout" id="homeLayout">
+        <div class="hero-column">
+          <header class="module-header">
+            <div class="module-copy">
+              <p class="section-tag" id="moduleTag">Left-Right Discrimination</p>
+              <h1 id="appTitle" class="brand-question">
+                <span class="left-word">Left</span>
+                <span class="or-word">or</span>
+                <span class="right-word">Right</span><span class="question-mark">?</span>
+              </h1>
+              <p class="hero-desc" id="moduleDescription">
+                A left-right discrimination practice activity.
+              </p>
+            </div>
+          </header>
+
+          <div class="launch-panel">
+            <button class="primary-button" id="startButton" type="button">Start Session</button>
+          </div>
+        </div>
+
+        <section class="setup-panel" id="setupPanel">
+          <div class="basic-limit-panel">
+            <div>
+              <span id="imagesPerSetLabel">Need more clinical flexibility?</span>
+              <p id="basicLimitDescription">Create an account to unlock more pictures and STRIVE AI note generation.</p>
+            </div>
+            <a class="upgrade-link" id="upgradeLink" href="https://www.striveptlv.com/independence/auth.html?panel=createPractice">Upgrade</a>
+            <input id="trialCount" type="hidden" value="10" />
+          </div>
+
+          <div class="setup-copy">
+            <div class="section-tag" id="setupTag">Session Setup</div>
+            <h2 id="setupTitle">Configure Task</h2>
+            <p id="setupDescription">Practice left-right discrimination with a starter image set.</p>
+          </div>
+
+          <div class="setup-grid">
+            <div>
+              <div class="instructions">
+                <h3 id="instructionsTitle">Instructions</h3>
+                <ol id="instructionsList">
+                  <li>Look at each hand picture.</li>
+                  <li>Decide whether it shows a left hand or a right hand.</li>
+                  <li>Press the matching button as quickly and accurately as you can.</li>
+                  <li>Create an account for more pictures and STRIVE AI note generation.</li>
+                </ol>
+              </div>
+
+              <div class="session-settings" aria-label="Documentation and set settings">
+                <label class="field visually-hidden" for="setCount">
+                  <span id="setsLabel">Sets</span>
+                  <select id="setCount" tabindex="-1" aria-hidden="true">
+                    <option value="1">1 set</option>
+                  </select>
+                </label>
+
+                <label class="ai-toggle">
+                  <input id="striveAiToggle" type="checkbox" checked />
+                  <span>
+                    <strong>STRIVE AI</strong>
+                    <small id="aiDescription">Use the session score, timing, and errors to draft a quick note after the activity.</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="task-panel hidden" id="taskPanel" aria-label="Identify hand side">
+        <div class="progress-row">
+          <span id="progressText">Picture 1 of 10</span>
+          <span class="task-timer" aria-live="polite"><span id="timerLabel">Time</span> <strong id="timer">00:00</strong></span>
+          <span id="scoreText">Correct: 0</span>
+        </div>
+
+        <div class="image-stage">
+          <img id="handImage" alt="Hand to identify" />
+          <div class="demo-hand hidden" id="demoHand" aria-hidden="true"></div>
+        </div>
+
+        <div class="answer-row" aria-label="Answer choices">
+          <button class="answer-button left-choice" data-answer="left" type="button">Left</button>
+          <button class="answer-button right-choice" data-answer="right" type="button">Right</button>
+        </div>
+      </section>
+
+      <section class="results-panel hidden" id="resultsPanel" aria-live="polite">
+        <div class="basic-upgrade-panel" id="basicUpgradePanel">
+          <strong id="basicUpgradeTitle">Ready to document faster?</strong>
+          <p id="basicUpgradeDescription">Create an account for more pictures and auto-generated notes with STRIVE AI.</p>
+          <a id="basicUpgradeLink" href="https://www.striveptlv.com/independence/auth.html?panel=createPractice">Upgrade</a>
+        </div>
+
+        <div class="section-tag" id="resultsTag">Results</div>
+        <h2 id="resultsTitle">Session Complete</h2>
+
+        <div class="metric-grid">
+          <div>
+            <span id="scoreLabel">Score</span>
+            <strong id="scoreMetric">0 / 0</strong>
+          </div>
+          <div>
+            <span id="accuracyLabel">Accuracy</span>
+            <strong id="accuracyMetric">0%</strong>
+          </div>
+          <div>
+            <span id="timeLabel">Time</span>
+            <strong id="timeMetric">00:00</strong>
+          </div>
+          <div>
+            <span id="rateLabel">Rate</span>
+            <strong id="rateMetric">0 / min</strong>
+          </div>
+        </div>
+
+        <div class="missed-list" id="missedList"></div>
+
+        <section class="soap-panel hidden" id="soapPanel" aria-label="STRIVE AI SOAP note options">
+          <div class="section-tag">STRIVE AI</div>
+          <h2 id="soapTitle">SOAP Note</h2>
+          <div class="soap-list" id="soapList"></div>
+        </section>
+
+        <div class="actions">
+          <button class="primary-button" id="restartButton" type="button">Run Again</button>
+          <button class="secondary-button" id="newSetupButton" type="button">New Setup</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js?v=basic-2"></script>
+  </body>
+</html>
